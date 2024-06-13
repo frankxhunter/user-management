@@ -8,11 +8,13 @@ import org.apache.commons.dbcp2.BasicDataSource;
 
 
 public class DataBaseConnection {
-    private static String url = "jdbc:mysql://localhost:3306/users";
+    private static final String url = "jdbc:mysql://localhost:3306/users";
 
-    private static String username = "root";
+    private static final String username = "root";
 
-    private static String password = "root";
+    private static final String password = "root";
+
+    private static final String DRIVER_CLASS_NAME = "com.mysql.cj.jdbc.Driver";
 
     private static BasicDataSource pool = null;
 
@@ -23,7 +25,9 @@ public class DataBaseConnection {
             pool.setUrl(url);
             pool.setUsername(username);
             pool.setPassword(password);
+            pool.setDriverClassName(DRIVER_CLASS_NAME);
 
+            
             pool.setInitialSize(3);
             pool.setMinIdle(3);
             pool.setMaxIdle(8);

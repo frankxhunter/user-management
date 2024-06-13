@@ -25,7 +25,7 @@ public class UsersServlet extends HttpServlet {
         rep.setConnection(DataBaseConnection.getConnection());
         List<User> users = rep.findAll();
         req.setAttribute("users", users);
-        getServletContext().getRequestDispatcher("/index.jsp").forward(req, resp);
+        getServletContext().getRequestDispatcher("/WEB-INF/users.jsp").forward(req, resp);
     }catch(SQLException e){
         PrintWriter out = resp.getWriter();
         out.println("<!DOCTYPE html>");

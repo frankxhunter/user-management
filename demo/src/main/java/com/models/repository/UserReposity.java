@@ -16,10 +16,13 @@ public class UserReposity implements Repository<User> {
     public void setConnection(Connection connection) {
         this.connection = connection;
     }
+    public Connection getConnection() {
+        return connection;
+    }
 
     private User createUser(ResultSet result) throws SQLException {
-        String email = result.getString("email");
         String username = result.getString("username");
+        String email = result.getString("email");
         String password = result.getString("password");
         String id = result.getString("id");
 
@@ -30,7 +33,7 @@ public class UserReposity implements Repository<User> {
     public List<User> findAll() throws SQLException {
         List<User> users = new ArrayList<>();
         try (java.sql.Statement st = connection.createStatement()) {
-            String query = "Select * from user ";
+            String query = "Select * from users ";
             ResultSet result = st.executeQuery(query);
 
             while (result.next()) {
@@ -58,7 +61,7 @@ public class UserReposity implements Repository<User> {
     @Override
     public boolean save(User user) throws SQLException {
         if (user.getId() == null) {
-            String query = "Insert into user (username, email, password) values (?,?,?)";
+            String query = "Insert into users (username, email, password) values (?,?,?)";
             try (PreparedStatement ps = connection.prepareStatement(query)) {
                 ps.setString(1, user.getUsername());
                 ps.setString(2, user.getEmail());
@@ -75,7 +78,7 @@ public class UserReposity implements Repository<User> {
     @Override
     public boolean update(User user) throws SQLException {
         if (user.getId() != null) {
-            String query = "Update user set username= ?, email = ?, password = ? WHERE id = ?";
+            String query = "Update users set username= ?, email = ?, password = ? WHERE id = ?";
             try (PreparedStatement ps = connection.prepareStatement(query)) {
                 ps.setString(1, user.getUsername());
                 ps.setString(2, user.getEmail());

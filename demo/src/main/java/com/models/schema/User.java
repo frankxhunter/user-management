@@ -62,4 +62,9 @@ public class User {
     public void setId(String id) {
         this.id = id;
     }
+
+    @Override
+    public String toString() {
+        return username +" "+ email +" "+ password;
+    }
 }
