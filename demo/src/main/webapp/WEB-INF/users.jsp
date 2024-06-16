@@ -51,9 +51,9 @@
         </div>
     </section>
 
-    <button class="add_button">
+    <a class="add_button" href="http://localhost:8080/user-admin/form-user">
         <span class="material-symbols-outlined">add</span>
-    </button>
+    </a>
 
 </body>
 </html>

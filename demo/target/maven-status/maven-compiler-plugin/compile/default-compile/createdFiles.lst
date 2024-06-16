@@ -2,6 +2,7 @@ com\models\repository\UserReposity.class
 com\servlets\UsersServlet.class
 com\util\DataBaseConnection.class
 com\example\Main.class
+com\servlets\FormUsersServler.class
 com\util\Validation.class
 com\models\schema\User.class
 com\models\repository\Repository.class
