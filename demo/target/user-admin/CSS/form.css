@@ -28,6 +28,7 @@ input {
     align-items: center;
     justify-content: center;
     border-radius: 50px 5px;
+
 }
 
 .form_container::before{
@@ -78,6 +79,22 @@ input {
     font-size: 30px;
     margin: 10px;
     font-family: math;
+}
+.button_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+.button_cancel{
+    background: none;
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 8px;
+    text-decoration: none;
+}
+.button {
+    width: 71px;
 }
 
 .border_red{

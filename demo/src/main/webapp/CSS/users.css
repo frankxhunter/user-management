@@ -1,12 +1,14 @@
-*{
-    color: rgb(255, 255, 255);
+* {
+    color: rgb(16, 150, 177);
+
 }
-body{
+
+body {
     background: rgb(18, 23, 44);
 }
 
 
-h1{
+h1 {
     text-align: center;
     font-size: xx-large;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -14,7 +16,7 @@ h1{
 }
 
 
-.content_users{
+.content_users {
     margin: auto;
     width: 50%;
     display: flex;
@@ -24,7 +26,7 @@ h1{
 }
 
 .content_user {
-    border: 1px solid rgb(255, 255, 255, 0.3);
+    border: 1px solid rgb(16, 150, 177);
     width: 40%;
     min-width: fit-content;
     padding: 10px;
@@ -37,44 +39,50 @@ h1{
     animation-timing-function: ease-in;
     display: flex;
     flex-direction: column;
-} 
+}
 
-@keyframes enter{
-    0%{
+@keyframes enter {
+    0% {
         transform: translateY(50px);
         opacity: 0;
         display: none;
 
     }
-    100%{
+
+    100% {
         transform: translateY(0);
         opacity: 1;
         display: flex;
 
     }
 }
-.content_user *{
-     color: antiquewhite;
-     font-family: math;
-     box-shadow: -11px 10px 63px -12px rgba(0,0,0,0.75);
+
+.content_user * {
+    color: rgb(16, 150, 177);
+
+    font-family: math;
+    box-shadow: -11px 10px 63px -12px rgba(0, 0, 0, 0.75);
 }
 
 .title {
-    text-align:center;
+    text-align: center;
     margin-bottom: 5px;
-    
+
 }
+
 .data-user {
     display: flex;
     gap: 10px;
 }
 
-.data-user div{
+.data-user div {
     align-self: flex-start;
 }
-.data-user span{
+
+.data-user span {
     align-self: center;
 }
+
 .add_button {
     background: none;
     width: 45px;
@@ -90,9 +98,11 @@ h1{
     transition: 1s;
     text-decoration: none;
 }
+
 .add_button:active {
     opacity: 1;
 }
+
 .add_button:hover {
     transform: rotate(90deg);
     opacity: 0.7;

@@ -36,8 +36,9 @@
             <input class="<%=(errors.get("password")!=null? "border_red": "")%>"
             required value="${param.password}" type="password" autocomplete="off" name="password" id="password" placeholder="JhonDoe123@">
         </div>
-        <div>
-            <input type="submit" value="send" class="button_send">    
+        <div class= "button_container">
+            <a href="<%=request.getContextPath()%>/users" class="button button_cancel">Cancel</a>    
+            <input type="submit" value="send" class="button button_send">    
         </div>
     </form>
     </div>

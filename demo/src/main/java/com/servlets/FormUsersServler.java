@@ -59,7 +59,8 @@ public class FormUsersServler extends HttpServlet {
                 user.setEmail(email);
                 user.setPassword(password);
                 rp.save(user);
-                getServletContext().getRequestDispatcher("/WEB-INF/users.jsp").forward(req, resp);
+                //getServletContext().getRequestDispatcher("/WEB-INF/users.jsp").forward(req, resp);
+                resp.sendRedirect(req.getContextPath() + "/users");
             } catch (SQLException e) {
                 e.printStackTrace();
             }

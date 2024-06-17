@@ -51,7 +51,7 @@
         </div>
     </section>
 
-    <a class="add_button" href="http://localhost:8080/user-admin/form-user">
+    <a class="add_button" href="<%= request.getContextPath() %>/form-user">
         <span class="material-symbols-outlined">add</span>
     </a>
 
