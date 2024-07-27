@@ -12,8 +12,10 @@
 <head>
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/users.css" contentType="text/css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="<%= request.getContextPath()%>/JS/users.js"></script>
     <title>Users</title>
 </head>
 <body>
@@ -46,6 +48,11 @@
                     </span>
                     <span></span>
                     </div>
+                    <button type="submit" class="button_cancel" onClick="deleteUser('<%=user.getId()%>')">
+                        <span class="material-symbols-outlined">
+                            close
+                        </span>
+                    </button>
             </div>
             <% } %>
         </div>
@@ -54,6 +61,5 @@
     <a class="add_button" href="<%= request.getContextPath() %>/form-user">
         <span class="material-symbols-outlined">add</span>
     </a>
-
 </body>
 </html>

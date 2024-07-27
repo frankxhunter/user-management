@@ -2,6 +2,7 @@ package com.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -21,27 +22,58 @@ public class UsersServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
         UserReposity rep = new UserReposity();
-        try{ 
-        rep.setConnection(DataBaseConnection.getConnection());
-        List<User> users = rep.findAll();
-        req.setAttribute("users", users);
-        getServletContext().getRequestDispatcher("/WEB-INF/users.jsp").forward(req, resp);
-    }catch(SQLException e){
-        PrintWriter out = resp.getWriter();
-        out.println("<!DOCTYPE html>");
-        out.println("<html>");
-        out.println("<head>");
-        out.println("<meta charset=\"UTF-8\">");
-        out.println("<title>Error</title>");
-        out.println("</head>");
-        out.println("<body>");
-        out.println("<h1>Error</h1>");
-        out.println("<p>");
-        out.println(e.getMessage());
-        out.println("</p>");
-        out.println("</body>");
-        out.println("</html>");
+        try {
+            rep.setConnection(DataBaseConnection.getConnection());
+            List<User> users = rep.findAll();
+            req.setAttribute("users", users);
+            getServletContext().getRequestDispatcher("/WEB-INF/users.jsp").forward(req, resp);
+        } catch (SQLException e) {
+            PrintWriter out = resp.getWriter();
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<meta charset=\"UTF-8\">");
+            out.println("<title>Error</title>");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Error</h1>");
+            out.println("<p>");
+            out.println(e.getMessage());
+            out.println("</p>");
+            out.println("</body>");
+            out.println("</html>");
+        }
+
     }
 
+    @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        UserReposity rp = new UserReposity();
+        System.out.println("hola?");
+
+        try (Connection con = DataBaseConnection.getConnection()) {
+            rp.setConnection(con);
+            String id = req.getParameter("id");
+            System.out.println("hola?");
+            if (id != null) {
+                rp.delete(id);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            PrintWriter out = resp.getWriter();
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<meta charset=\"UTF-8\">");
+            out.println("<title>Error</title>");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Error</h1>");
+            out.println("<p>");
+            out.println(e.getMessage());
+            out.println("</p>");
+            out.println("</body>");
+            out.println("</html>");
+        }
     }
 }
