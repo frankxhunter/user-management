@@ -23,22 +23,31 @@
         <div class="title">Register a user</div>
         <div>
             <label for="username">Username: </label>
-            <input class="<%=(errors.get("user")!=null? "border_red": "")%>" 
+            <input class="<%=(errors.get("username")!=null? "border_red": "")%>" 
             required value="${param.username}" type="text" autocomplete="off" name="username" id="username" placeholder="Jhon Doe">
+            <small class="textError">
+                <%= (errors.get("username")  != null ? errors.get("username"): "")%>
+            </small>
+
         </div>
         <div>
             <label for="email">Email: </label>
             <input class="<%=(errors.get("email")!=null? "border_red": "")%>"
             required value="${param.email}" type="email" autocomplete="off" name="email" id="email" placeholder="jhondoe@gmail.com">
+            <small class="textError">
+            <%= (errors.get("email") != null ? errors.get("email"): "")%>
+            </small>
         </div>
         <div>
             <label for="password">Password: </label>
             <input class="<%=(errors.get("password")!=null? "border_red": "")%>"
             required value="${param.password}" type="password" autocomplete="off" name="password" id="password" placeholder="JhonDoe123@">
+            <small class="textError"><%= (errors.get("password")  != null ? errors.get("password"): "")%></small>
         </div>
         <div class= "button_container">
             <a href="<%=request.getContextPath()%>/users" class="button button_cancel">Cancel</a>    
             <input type="submit" value="send" class="button button_send">    
+
         </div>
     </form>
     </div>
